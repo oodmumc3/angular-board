@@ -1,0 +1,4 @@
+rootProject.name = 'ng-gradle-first'
+include 'backend'
+include 'frontend'
+

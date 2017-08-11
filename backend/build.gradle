@@ -1,0 +1,59 @@
+group 'co.kr.tlab.ng'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
+
+war.baseName = 'ng-app'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+def springVersion = '4.3.4.RELEASE'
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile group: 'javax', name: 'javaee-web-api', version:'7.0'
+    compile group: 'javax.servlet', name: 'jstl', version:'1.2'
+    compile group: 'org.springframework', name: 'spring-core', version:springVersion
+    compile group: 'org.springframework', name: 'spring-webmvc', version:springVersion
+    compile group: 'org.springframework', name: 'spring-context', version:springVersion
+    compile group: 'org.springframework', name: 'spring-jdbc', version:springVersion
+    compile group: 'org.springframework', name: 'spring-tx', version:springVersion
+    compile group: 'org.springframework', name: 'spring-oxm', version:springVersion
+    compile group: 'org.springframework', name: 'spring-test', version:springVersion
+    compile group: 'org.codehaus.castor', name: 'castor-xml', version:'1.3.3'
+    compile group: 'javax.validation', name: 'validation-api', version:'1.1.0.Final'
+    compile group: 'org.hibernate', name: 'hibernate-validator', version:'5.2.1.Final'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:'2.8.5'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.8.5'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version:'2.8.5'
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-hibernate4', version:'2.4.0'
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version:'2.8.5'
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-jaxb-annotations', version:'2.8.5'
+    compile group: 'com.twelvemonkeys.servlet', name: 'servlet', version:'3.2.1'
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version:'1.7.21'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version:'1.1.7'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.4'
+    compile group: 'com.lowagie', name: 'itext', version:'4.2.1'
+    compile group: 'net.logstash.logback', name: 'logstash-logback-encoder', version:'4.6'
+    compile group: 'com.googlecode.genericdao', name: 'dao-hibernate', version:'1.2.0'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'5.1.0.Final'
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version:'1.5.5'
+    compile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version:'8.5.9'
+    compile group: 'org.springframework', name: 'spring-orm', version:springVersion
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
+}
+
+

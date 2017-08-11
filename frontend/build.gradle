@@ -1,0 +1,30 @@
+plugins {
+    id "com.moowork.node" version "1.1.0"
+}
+
+version '0.0.1'
+
+node {
+    version = '6.11.1'
+    npmVersion = '3.10.10'
+    download = false
+    workDir = file("${project.buildDir}/nodejs")
+    npmWorkDir = file("${project.buildDir}/npm")
+    nodeModulesDir = file("${project.projectDir}")
+}
+
+task build(type: NpmTask) {
+    args = ['run', 'build']
+    execOverrides {
+        it.workingDir = 'src/main/frontend'
+    }
+}
+
+task copyNgScript(type: Copy) {
+    from file('src/main/frontend/dist')
+    into project(':backend').file('src/main/webapp')
+}
+
+build.dependsOn(npm_install)
+copyNgScript.dependsOn(build)
+
